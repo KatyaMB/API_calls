@@ -1,10 +1,14 @@
- // Empty array
-let pokemon = [];
+// Make an empty array
+const pokemon = [];
 
-// Fetch Pokemon with APIs
-fetch("https://pokeapi.co/api/v2/pokemon/magmar/")
-  .then((res) => res.json())
-  .then((result) => {
+//Creating an async function
+async function fetchPokemonData() {
+  try {
+    // Fetch the data from the API
+    const response = await fetch("https://pokeapi.co/api/v2/pokemon/magmar/");
+    // Parse the JSON response
+    const result = await response.json();
+
     // Fetch name, weight, and abilities from the API response
     const { name, weight, abilities } = result;
 
@@ -15,7 +19,7 @@ fetch("https://pokeapi.co/api/v2/pokemon/magmar/")
       abilities: abilities.map((ability) => ability.ability.name),
     };
 
-    // Push the pokemonData object to the pokemon array
+    // Push the pokemonData object to the empty array
     pokemon.push(pokemonData);
 
     // Output the data in a structured way
@@ -24,8 +28,11 @@ fetch("https://pokeapi.co/api/v2/pokemon/magmar/")
       Weight: ${pokemonData.weight},
       Abilities: ${pokemonData.abilities.join(", ")}
     `);
-  })
-  .catch((error) => {
-    //Catch block to catch any errors
+  } catch (error) {
+    // Catch block to catch any errors
     console.log(`Sorry, your Pokemon is still recharging, try again later`);
-  });
+  }
+}
+
+// Call the async function
+fetchPokemonData();
