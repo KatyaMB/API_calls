@@ -8,4 +8,8 @@ as the next opertion depends on the result of the previous one.
 
 Credit: Katya Mironova
 
-![alt text](https://github.com/KatyaMB/API_calls/blob/main/API_call.png)
+Output:
+
+
+
+<img src="https://github.com/KatyaMB/API_calls/blob/main/API_call.png" width="400">
